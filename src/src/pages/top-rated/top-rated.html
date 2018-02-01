@@ -1,0 +1,38 @@
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let movie of topRated?.results">
+
+        <ion-item>
+            <h2>{{ movie.original_title }}</h2>
+            <p>{{ movie.release_date | date:'mediumDate' }}</p>
+        </ion-item>
+        <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
+        <ion-card-content>
+            <p>{{ movie.overview }}</p>
+        </ion-card-content>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-icon name="contacts" item-start></ion-icon>
+                    Popularity
+                    <ion-badge item-end>{{ movie.popularity | number : '1.2-2' }}</ion-badge>
+                </ion-item>
+
+            </ion-col>
+            <ion-col>
+
+                <ion-item>
+                    <ion-icon name="thumbs-up" item-start></ion-icon>
+                    Vote Average
+                    <ion-badge item-end>{{ movie.vote_average | number : '1.1-1' }}</ion-badge>
+                </ion-item>
+
+
+            </ion-col>
+        </ion-row>
+    </ion-card>
+</ion-content>

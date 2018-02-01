@@ -1,0 +1,9 @@
+<ion-content padding>
+    <h2 text-center>XKCD Comics (List A)</h2>
+    <hr>
+    <ion-list>
+        <button ion-item *ngFor="let item of comics" (click)="itemSelected(item)">
+          {{ item.title }} <span><small class="font-style: italic"> {{ item.year }}/{{ item.month }}/{{ item.day }}</small></span>
+        </button>
+    </ion-list>
+</ion-content>

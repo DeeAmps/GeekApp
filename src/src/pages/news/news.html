@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Hacker News</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <h2 text-center>Hacker News Top Stories</h2>
+    <hr>
+    <ion-card *ngFor="let item of organisedTops" (click)="Readstory(item.url)">
+        <ion-card-header text-wrap>
+            <strong>{{ item.title }}</strong>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+            by <span style="font-style: italic">{{item.by}}</span>
+            <br>
+            <p [innerHtml]="GetTime(item.time)"></p>
+            <br>
+            <ion-row>
+                <ion-icon color="secondary" name="md-paper"></ion-icon>
+                <a (click)="Readstory(item.url)" style="margin-left: 10px">READ STORY</a>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

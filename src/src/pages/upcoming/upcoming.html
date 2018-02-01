@@ -1,0 +1,24 @@
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <h2 text-center>Most Anticipated 2018</h2>
+    <hr>
+    <ion-card *ngFor="let movie of upComingMovies?.data">
+
+        <ion-item>
+            <h1>{{ movie.title }}</h1>
+            <p><strong>Release Date</strong> - {{ movie.release_date | date:'mediumDate' }}</p>
+        </ion-item>
+        <img src="{{ movie.poster }}">
+        <ion-card-content *ngIf="movie.trailer">
+            <ion-item>
+                <button (click)="watchTrailer(movie.trailer, movie.title)" ion-button icon-left clear item-end>
+                    <ion-icon style="font-size: 40px" color="danger" name="logo-youtube"></ion-icon>
+                    Watch Trailer
+                </button>
+            </ion-item>
+        </ion-card-content>
+
+    </ion-card>
+</ion-content>

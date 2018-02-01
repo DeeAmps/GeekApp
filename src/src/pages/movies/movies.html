@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Movies</ion-title>
+        <!-- <ion-buttons end>
+            <ion-icon (click)="showInfo()" style="zoom: 2.0; padding-right: 10px" name="information"></ion-icon>
+        </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-tabs color="primary" tabsPlacement="top" overflow-scroll="false">
+        <ion-tab [root]="tab1Root" tabTitle="Now Playing" tabIcon="play"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="Anticipated" tabIcon="time"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="Top Rated" tabIcon="star-outline"></ion-tab>
+    </ion-tabs>
+</ion-content>

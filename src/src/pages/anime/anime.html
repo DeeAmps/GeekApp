@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Anime/Manga</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-tabs color="primary" tabsPlacement="bottom" overflow-scroll="true">
+        <ion-tab [root]="tab1Root" tabTitle="Anime" tabIcon="home"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="Manga" tabIcon="copy"></ion-tab>
+    </ion-tabs>
+</ion-content>

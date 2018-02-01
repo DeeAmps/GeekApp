@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ description.canonicalTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+          <ion-icon name='bulb'></ion-icon>
+        </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    {{ description.synopsis }}
+</ion-content>
+<ion-footer>
+    <button ion-button full color="danger" (click)="dismiss()">Okay
+    </button>
+</ion-footer>

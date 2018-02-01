@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Most Anticipated 2018</ion-title>
+    </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <ion-card *ngFor="let game of aniticipatedGames">
+        <img *ngIf="game.image_url" [src]="game.image_url" />
+        <ion-card-content>
+            <ion-card-title>
+                <h2 text-wrap text-center><strong>{{game.name}}</strong></h2>
+                <hr>
+                <h3 text-center>{{game.release_date }}</h3>
+            </ion-card-title>
+            <p text-center>
+                {{game.platforms}}
+            </p>
+            <button style="padding-left: 25%" (click)="watchTrailer(game.trailer_url, game.name)" ion-button clear item-start>
+                <ion-icon style="font-size: 30px; margin-right: 5px" color="danger" name="logo-youtube"></ion-icon>
+                Watch Trailer 
+            </button>
+
+        </ion-card-content>
+    </ion-card>
+</ion-content>

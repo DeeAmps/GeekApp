@@ -1,0 +1,31 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Top 20 Search Results</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <p text-center>Search results for {{ searchString }}</p>
+    <hr>
+    <ion-card *ngFor="let game of searchedResults?.results">
+        <img *ngIf="game.image.medium_url" [src]="game.image.medium_url" />
+        <ion-card-content>
+            <ion-card-title>
+                <h2 text-center><strong>{{game.name}}</strong></h2>
+                <hr>
+                <h3 text-center>{{game.original_release_date | date:'mediumDate'}}</h3>
+            </ion-card-title>
+            <p text-center>
+                {{game.deck}}
+            </p>
+            <hr>
+            <h3 text-center><strong>Available on</strong></h3>
+            <div *ngFor="let item of game?.platforms">
+                <ion-badge color="secondary"><span>{{ item.name }}</span></ion-badge>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

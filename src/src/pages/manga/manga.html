@@ -1,0 +1,55 @@
+<!--
+  Generated template for the AnimeMainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+    <ion-header>
+        <ion-navbar color="light">
+            <ion-searchbar [formControl]="manga" placeholder="Search Manga" type="text" [(ngModel)]="mangaModel" (keyup.enter)="handleSearch()"></ion-searchbar>
+        </ion-navbar>
+    </ion-header>
+
+</ion-header> -->
+
+
+<ion-content no-padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <h2 *ngIf="trendingManga?.data" style="color:red;text-align: center;font-style: italic;font-family:Courier New, Courier, monospace">Trending Manga(Top 10)</h2>
+    <hr>
+    <div *ngFor="let item of trendingManga?.data">
+        <ion-card (click)="showSynopsis(item.attributes)">
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-6>
+                        <img height="100%" src="{{ item.attributes.posterImage.medium }}" />
+                    </ion-col>
+                    <ion-col col-6>
+                        <h1 text-wrap><strong>{{ item.attributes.canonicalTitle }}</strong></h1>
+                        <br>
+                        <h2>Status - <strong>{{ item.attributes.status }}</strong></h2>
+                        <h2>Chapter Count -
+                            <ion-badge item-end>{{ item.attributes.chapterCount }}</ion-badge>
+                        </h2>
+                        <h2>Average Rating -
+                            <ion-badge item-end>{{ item.attributes.averageRating }}</ion-badge>
+                        </h2>
+                        <h2>Start Date -
+                            <ion-badge color="secondary" item-end>{{ item.attributes.startDate | date:'mediumDate' }}</ion-badge>
+                        </h2>
+                        <h2 *ngIf="item.attributes.endDate">End Date -
+                            <ion-badge color="danger" item-end>{{ item.attributes.endDate | date:'mediumDate' }}</ion-badge>
+                        </h2>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+    <ion-fab *ngIf="trendingManga?.data" right bottom>
+        <button (click)="handleSearch()" ion-fab color="danger"><ion-icon name="search"></ion-icon></button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ gameTitle }}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-content>
+            <iframe width="100%" height="450px" [src]="sanitize(trailerUrl)" frameborder="0" allowfullscreen></iframe>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

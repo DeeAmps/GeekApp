@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Games</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-color: black">
+    <img style="margin: auto;display: block;width: 40%;margin-top:40%" src="https://iphonehdwallpapers.net/wp-content/cache/7aadd57f8729a9ff500a87375732cb9f_w324_h576_sc.jpg" alt="">
+    <div class="popup-menu">
+        <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
+        <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"></div>
+        <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+            <div class="popup-menu-item" (click)="goToLatestGames()">
+                <ion-icon name="calendar"></ion-icon>
+                <span>LATEST GAMES</span>
+            </div>
+            <div class="popup-menu-item" (click)="goToMostAnticipated()">
+                <ion-icon name="time"></ion-icon>
+                <span>ANTICIPATED</span>
+            </div>
+            <div class="popup-menu-item" (click)="goToSearch()">
+                <ion-icon name="search"></ion-icon>
+                <span>SEARCH</span>
+            </div>
+
+        </div>
+    </div>
+</ion-content>

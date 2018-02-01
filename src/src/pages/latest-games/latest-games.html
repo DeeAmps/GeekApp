@@ -1,0 +1,30 @@
+<!--
+  Generated template for the LatestGamesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ platformName?.name }} (Top 10)</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let game of latestGames?.results">
+        <img *ngIf="game.image.medium_url" [src]="game.image.medium_url" />
+        <ion-card-content>
+            <ion-card-title>
+                <h2 text-wrap text-center><strong>{{game.name}}</strong></h2>
+                <hr>
+                <h3 text-center>{{game.original_release_date | date:'mediumDate'}}</h3>
+            </ion-card-title>
+            <p text-center>
+                {{game.deck}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

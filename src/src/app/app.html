@@ -1,0 +1,39 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons menuClose icon="close" end>
+            </ion-buttons>
+            <ion-title style="margin-top: 15px;text-align: center; font-family: Impact, Charcoal, sans-serif"><span style="color: white">Geek Up</span></ion-title>
+            <p style="color: grey;font-size: 12px; font-style: italic; text-align: center;">
+                a look up app for geeks
+            </p>
+        </ion-toolbar>
+
+
+    </ion-header>
+    <ion-content class="primary">
+        <ion-list>
+
+            <hr>
+
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon style="margin-right: 5px" [name]="p.icon"></ion-icon>
+                <b style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    {{p.title}}
+                </b>
+                
+            </button>
+            <br>
+            <button *ngFor="let p of lastPage" menuClose ion-item (click)="openPage(p)">
+                <ion-icon style="margin-right: 5px" [name]="p.icon"></ion-icon>
+                <b style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    {{p.title}}
+                </b>
+        </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

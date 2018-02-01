@@ -1,0 +1,17 @@
+<ion-content padding>
+    <h2 text-center text-wrap>Comic Book Heroes "Powers"</h2>
+    <p text-center text-wrap>select power for details</p>
+    <hr>
+    <ion-list [virtualScroll]="comicResults">
+        <ion-item *virtualItem="let power" ion-item (click)="Details(power)">
+            <ion-icon color="danger" name="ios-flash-outline" item-start></ion-icon>
+            {{ power.name }}
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll *ngIf="offset - 2 < totalResults" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <ion-fab right bottom>
+        <button (click)="handleSearch()" ion-fab color="danger"><ion-icon name="search"></ion-icon></button>
+    </ion-fab>
+</ion-content>

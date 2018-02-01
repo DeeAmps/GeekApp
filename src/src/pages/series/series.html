@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>T.V Series</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-tabs color="primary" tabsPlacement="top" overflow-scroll="false">
+        <ion-tab [root]="tab1Root" tabTitle="Airing Today" tabIcon="ios-clock-outline"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="On Air" tabIcon="md-calendar"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="Popular" tabIcon="ios-heart"></ion-tab>
+    </ion-tabs>
+</ion-content>

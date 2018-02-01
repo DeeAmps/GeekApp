@@ -1,0 +1,71 @@
+<!--
+  Generated template for the TvDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary">
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let item of tvDetails">
+        <img src="http://image.tmdb.org/t/p/w185{{ item.poster_path }}">
+        <hr>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-col col-3>Total Episodes</ion-col>
+                    <ion-col col-3>
+                        <ion-badge end>{{item.number_of_episodes}}</ion-badge>
+                    </ion-col>
+
+                </ion-col>
+                <ion-col col-6>
+                    <ion-col col-3>Seasons Count</ion-col>
+                    <ion-col col-3>
+                        <ion-badge end>{{item.number_of_seasons}}</ion-badge>
+                    </ion-col>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <hr>
+        <h2 text-center><strong>Genres</strong></h2>
+        <div *ngFor="let season of item.genres">
+            <p style="padding-left: 15px">{{ season.name }}</p>
+        </div>
+        <hr>
+        <h2 text-center><strong>Production Companies</strong></h2>
+        <div *ngFor="let comp of item.production_companies">
+            <p style="padding-left: 15px">{{ comp.name }}</p>
+        </div>
+        <hr>
+        <h2 text-center><strong>Creators</strong></h2>
+        <div *ngFor="let cret of item.created_by">
+            <p style="padding-left: 15px">{{ cret.name }}</p>
+        </div>
+        <hr>
+        <h2 text-center><strong>Seasons</strong></h2>
+        <div *ngFor="let cret of item.seasons | slice:1">
+            <ion-card>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col col-6>
+                            <img height="100%" src="http://image.tmdb.org/t/p/w185{{ cret.poster_path }}" />
+                        </ion-col>
+                        <ion-col col-6>
+                            <h1 text-wrap text-center>Season {{ cret.season_number }}</h1>
+                            <h2>Episodes -
+                                <ion-badge item-end>{{ cret.episode_count }}</ion-badge>
+                            </h2>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+
+    </ion-card>
+</ion-content>

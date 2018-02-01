@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Comics</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-tabs color="primary" tabsPlacement="top" overflow-scroll="false" id="tabs">
+        <ion-tab [root]="tab1Root" tabTitle="MARVEL Comics"></ion-tab>
+        <ion-tab id="xkcd" [root]="tab2Root" tabTitle="XKCD Comics"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="OTHER Comics"></ion-tab>
+    </ion-tabs>
+</ion-content>

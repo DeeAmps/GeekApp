@@ -1,0 +1,43 @@
+<ion-content padding>
+    <h2 text-center *ngIf="comics?.data">Marvel Comics - This Week</h2>
+    <hr>
+    <ion-card *ngFor="let item of comics?.data.results">
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="{{ item.thumbnail.path}}.{{ item.thumbnail.extension }}">
+            </ion-avatar>
+            <h2 text-wrap>{{ item.title }}</h2>
+            <p></p>
+        </ion-item>
+        <img src="{{ item.images[0].path }}.{{ item.images[0].extension }}">
+        <ion-card-content>
+            <p>{{ item.description }}</p>
+        </ion-card-content>
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small>
+                    <label style="margin-right: 10px" for="">Issue Number</label>
+                    <div><ion-badge color="secondary" item-end>{{ item.issueNumber }}</ion-badge></div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button icon-left clear small>
+                        <label style="margin-right: 10px" for="">Page Count</label>
+                        <div><ion-badge item-end>{{ item.pageCount }}</ion-badge></div>
+                </button>
+            </ion-col>
+            <!-- <ion-col center text-center>
+                <ion-note>
+
+                </ion-note>
+            </ion-col> -->
+        </ion-row>
+    </ion-card>
+    <ion-fab *ngIf="comics?.data" right bottom>
+        <button ion-fab color="primary"><ion-icon name="arrow-dropleft"></ion-icon></button>
+        <ion-fab-list side="left">
+            <button (click)="SearchComic()" ion-fab color="danger"><ion-icon name="search"></ion-icon></button>
+            <button (click)="FilterComic()" ion-fab color="secondary"><ion-icon name="ios-funnel"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

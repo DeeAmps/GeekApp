@@ -1,0 +1,52 @@
+<!--
+  Generated template for the AnimeDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Search Results</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="SearchResults?.data.length > 0 else NoResults">
+        <p>Manga Search results for {{ SearchedManga }}</p>
+        <div *ngFor="let item of SearchResults?.data">
+            <ion-card (click)="showSynopsis(item.attributes)">
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col col-6>
+                            <img height="100%" src="{{ item.attributes.posterImage.medium }}" />
+                        </ion-col>
+                        <ion-col col-6>
+                            <h1 text-wrap><strong>{{ item.attributes.canonicalTitle }}</strong></h1>
+                            <br>
+                            <h2>Status - <strong>{{ item.attributes.status }}</strong></h2>
+                            <h2>Chapter Count -
+                                <ion-badge item-end>{{ item.attributes.chapterCount }}</ion-badge>
+                            </h2>
+                            <h2>Age Rating - <strong>{{ item.attributes.ageRating }}</strong></h2>
+                            <h2>Average Rating -
+                                <ion-badge item-end>{{ item.attributes.averageRating }}</ion-badge>
+                            </h2>
+                            <h2>Start Date -
+                                <ion-badge color="secondary" item-end>{{ item.attributes.startDate | date:'mediumDate' }}</ion-badge>
+                            </h2>
+                            <h2 *ngIf="item.attributes.endDate">End Date -
+                                <ion-badge color="danger" item-end>{{ item.attributes.endDate | date:'mediumDate' }}</ion-badge>
+                            </h2>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
+    <ng-template *ngIf="SearchResults?.data.length == 0" #NoResults>
+        <h2>No Results found for {{ SearchedManga }}</h2>
+    </ng-template>
+</ion-content>

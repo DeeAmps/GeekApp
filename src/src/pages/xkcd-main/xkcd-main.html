@@ -1,0 +1,43 @@
+<ion-content padding>
+    <div *ngIf="!rdata">
+        <h2 text-center>Current Comic</h2>
+        <p text-center>{{ todaysComic?._body.day }}/{{ todaysComic?._body.month }}/{{ todaysComic?._body.year }}</p>
+        <hr>
+        <h3 text-center>{{ todaysComic?._body.title }}</h3>
+        <p text-center style="margin-left: 5px;margin-top:-10px; color:blue" (click)="Description(todaysComic?._body.alt)">(desc)</p>
+        <img src="{{ todaysComic?._body.img }}" alt="Comic Strip">
+        <hr>
+    </div>
+    <div class="popup-menu">
+        <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
+        <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"></div>
+        <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+            <ion-row>
+                <ion-col col-3>
+                    <div class="popup-menu-item" (click)="goToXKCDPageOne()">
+                        <ion-icon name="book"></ion-icon>
+                        <span>XKCD 1</span>
+                    </div>
+                </ion-col>
+                <ion-col col-3>
+                    <div class="popup-menu-item" (click)="goToXKCDPageTwo()">
+                        <ion-icon name="book"></ion-icon>
+                        <span>XKCD 2</span>
+                    </div>
+                </ion-col>
+                <ion-col col-3>
+                    <div class="popup-menu-item" (click)="goToXKCDPageThree()">
+                        <ion-icon name="book"></ion-icon>
+                        <span>XKCD 3</span>
+                    </div>
+                </ion-col>
+                <ion-col col-3>
+                    <div class="popup-menu-item" (click)="goToXKCDPageFour()">
+                        <ion-icon name="book"></ion-icon>
+                        <span>XKCD 4</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+</ion-content>

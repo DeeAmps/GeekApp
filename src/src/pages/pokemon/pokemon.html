@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Pokedex</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list *ngFor="let item of pokemonNames">
+        <ion-item>
+            <ion-thumbnail item-start>
+                <img src="{{ item.image }}">
+            </ion-thumbnail>
+            <h2><strong>{{ item.name }}</strong></h2>
+            <button ion-button clear item-end (click)="getDetails(item)">Details</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

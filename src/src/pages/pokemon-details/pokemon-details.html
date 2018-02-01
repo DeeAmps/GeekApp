@@ -1,0 +1,72 @@
+<!--
+  Generated template for the PokemonDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Pokemon Details</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let detail of newPokemonDetail">
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{ detail.img  }}">
+            </ion-avatar>
+            <h1 text-wrap>{{ PokemonName }}</h1>
+        </ion-item>
+
+        <img src="{{ PokemonImage }}">
+
+        <div>
+
+            <ion-item>
+                <ion-icon name="ribbon" item-start></ion-icon>
+                Type
+                <ion-badge color="secondary" *ngFor="let type of detail?.type" item-end>{{ type }}</ion-badge>
+            </ion-item>
+
+
+            <ion-item>
+                <ion-icon name="sad" item-start></ion-icon>
+                Weaknesses
+                <ion-badge color="danger" *ngFor="let weak of detail?.weaknesses" item-end>{{ weak }}</ion-badge>
+            </ion-item>
+
+            <div *ngIf="detail.prev_evolution">
+                <ion-item>
+                    <ion-icon name="rewind" item-start></ion-icon>
+                    Prev Evolution
+                    <ion-badge color="nyellow" *ngFor="let prev of detail?.prev_evolution" item-end>{{ prev.name }}</ion-badge>
+                </ion-item>
+            </div>
+
+            <div *ngIf="detail.next_evolution">
+                <ion-item>
+                    <ion-icon name="next" item-start></ion-icon>
+                    Next Evolution
+                    <ion-badge color="thu" *ngFor="let next of detail?.next" item-end>{{ next.name }}</ion-badge>
+                </ion-item>
+            </div>
+
+            <ion-item>
+                <ion-icon name="arrow-round-up" item-start></ion-icon>
+                Height
+                <ion-badge color="height" item-end>{{ detail.height }}</ion-badge>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="body" item-start></ion-icon>
+                Weight
+                <ion-badge item-end>{{ detail.weight }}</ion-badge>
+            </ion-item>
+        </div>
+
+    </ion-card>
+</ion-content>

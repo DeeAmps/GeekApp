@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>NY-Times BestSeller</ion-title>
+        <ion-buttons end>
+            <button (click)="showListNames()" ion-button icon-only>
+              <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar color="primary">
+        <ion-title style="text-align: center">BestSeller Overview</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngFor="let books of bestSellerOverview?.results?.lists">
+        <ion-list-header>
+            {{ books.list_name }}
+        </ion-list-header>
+        <ion-item *ngFor="let book of books.books" (click)="BookDetails(book)">
+            <ion-avatar item-start>
+                <img src="{{ book.book_image }}">
+            </ion-avatar>
+            <h2 text-wrap>{{ book.title }}</h2>
+            <p>by <strong>{{ book.author }}</strong></p>
+        </ion-item>
+
+    </ion-list>
+</ion-content>
